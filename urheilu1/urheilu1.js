@@ -12,8 +12,13 @@ class Henkilo{
 class urheilija extends Henkilo{
 
     //superilla kaytetaan henkilo luokkaa konstruktorissa
-    constructor(etunimet, sukunimi, kutsumanimi, syntymavuosi) {
+    //Korjattu: Konstruktorissa voi nyt syöttää parametreina halutut tiedot.
+    constructor(etunimet, sukunimi, kutsumanimi, syntymavuosi, linkki, omapaino, laji, saavutukset){
         super(etunimet, sukunimi, kutsumanimi, syntymavuosi);
+        this.linkki = linkki;
+        this.omapaino = omapaino;
+        this.laji = laji;
+        this.saavutukset = saavutukset;
     }
 
 
@@ -68,6 +73,15 @@ const toka = new Henkilo("Tarja", "Pekkala", "Tarkku", 1982);
 //Tulostetaan myös toisen olion tiedot:
 for(const arvo in toka){
     console.log(`${arvo}: ${toka[arvo]}`);
+}
+
+//Testataan korjauksen toimintaa
+const kolmas = new urheilija("Tapio", "Meriläinen", "Tapsa", 1995,
+    "https://www.w3schools.com/js/js_class_inheritance.asp",
+    76, "Juoksu", "JoensuuRun 10")
+
+for(const arvo in kolmas){
+    console.log(`${arvo}: ${kolmas[arvo]}`)
 }
 
 
